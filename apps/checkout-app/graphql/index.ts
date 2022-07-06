@@ -14,48 +14,15 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /**
-   * The `Date` scalar type represents a Date
-   * value as specified by
-   * [iso8601](https://en.wikipedia.org/wiki/ISO_8601).
-   */
   Date: any;
-  /**
-   * The `DateTime` scalar type represents a DateTime
-   * value as specified by
-   * [iso8601](https://en.wikipedia.org/wiki/ISO_8601).
-   */
   DateTime: any;
-  /**
-   * The `GenericScalar` scalar type represents a generic
-   * GraphQL scalar value that could be:
-   * String, Boolean, Int, Float, List or Object.
-   */
   GenericScalar: any;
   JSONString: string;
-  /**
-   * Metadata is a map of key-value pairs, both keys and values are `String`.
-   *
-   * Example:
-   * ```
-   * {
-   *     "key1": "value1",
-   *     "key2": "value2"
-   * }
-   * ```
-   */
   Metadata: any;
-  /**
-   * Positive Decimal scalar implementation.
-   *
-   * Should be used in places where value must be positive.
-   */
   PositiveDecimal: any;
   UUID: string;
-  /** Variables of this type must be set to null in mutations. They will be replaced with a filename from a following multipart part containing a binary file. See: https://github.com/jaydenseric/graphql-multipart-request-spec. */
   Upload: any;
   WeightScalar: any;
-  /** _Any value scalar as defined by Federation spec. */
   _Any: any;
 };
 
@@ -276,26 +243,6 @@ export type AddressCreate = {
   user?: Maybe<User>;
 };
 
-export type AddressCreated = Event & {
-  __typename?: 'AddressCreated';
-  /**
-   * The address the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  address?: Maybe<Address>;
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
-};
-
 /**
  * Deletes an address.
  *
@@ -309,26 +256,6 @@ export type AddressDelete = {
   errors: Array<AccountError>;
   /** A user instance for which the address was deleted. */
   user?: Maybe<User>;
-};
-
-export type AddressDeleted = Event & {
-  __typename?: 'AddressDeleted';
-  /**
-   * The address the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  address?: Maybe<Address>;
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 export type AddressInput = {
@@ -388,26 +315,6 @@ export type AddressUpdate = {
   errors: Array<AccountError>;
   /** A user object for which the address was edited. */
   user?: Maybe<User>;
-};
-
-export type AddressUpdated = Event & {
-  __typename?: 'AddressUpdated';
-  /**
-   * The address the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  address?: Maybe<Address>;
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 export type AddressValidationData = {
@@ -1256,26 +1163,6 @@ export type AttributeCreateInput = {
   visibleInStorefront?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type AttributeCreated = Event & {
-  __typename?: 'AttributeCreated';
-  /**
-   * The attribute the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  attribute?: Maybe<Attribute>;
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
-};
-
 /**
  * Deletes an attribute.
  *
@@ -1287,26 +1174,6 @@ export type AttributeDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   attributeErrors: Array<AttributeError>;
   errors: Array<AttributeError>;
-};
-
-export type AttributeDeleted = Event & {
-  __typename?: 'AttributeDeleted';
-  /**
-   * The attribute the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  attribute?: Maybe<Attribute>;
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 /** An enumeration. */
@@ -1378,7 +1245,6 @@ export type AttributeInputTypeEnum =
   | 'FILE'
   | 'MULTISELECT'
   | 'NUMERIC'
-  | 'PLAIN_TEXT'
   | 'REFERENCE'
   | 'RICH_TEXT'
   | 'SWATCH';
@@ -1508,26 +1374,6 @@ export type AttributeUpdateInput = {
   visibleInStorefront?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type AttributeUpdated = Event & {
-  __typename?: 'AttributeUpdated';
-  /**
-   * The attribute the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  attribute?: Maybe<Attribute>;
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
-};
-
 /** Represents a value of an attribute. */
 export type AttributeValue = Node & {
   __typename?: 'AttributeValue';
@@ -1544,8 +1390,6 @@ export type AttributeValue = Node & {
   inputType?: Maybe<AttributeInputTypeEnum>;
   /** Name of a value displayed in the interface. */
   name?: Maybe<Scalars['String']>;
-  /** Represents the text of the attribute value, plain text without formating. */
-  plainText?: Maybe<Scalars['String']>;
   /** The ID of the attribute reference. */
   reference?: Maybe<Scalars['ID']>;
   /**
@@ -1621,8 +1465,6 @@ export type AttributeValueCreateInput = {
   fileUrl?: InputMaybe<Scalars['String']>;
   /** Name of a value displayed in the interface. */
   name: Scalars['String'];
-  /** Represents the text of the attribute value, plain text without formating. */
-  plainText?: InputMaybe<Scalars['String']>;
   /**
    * Represents the text of the attribute value, includes formatting.
    *
@@ -1666,8 +1508,6 @@ export type AttributeValueInput = {
   file?: InputMaybe<Scalars['String']>;
   /** ID of the selected attribute. */
   id?: InputMaybe<Scalars['ID']>;
-  /** Plain text content. */
-  plainText?: InputMaybe<Scalars['String']>;
   /** List of entity IDs that will be used as references. */
   references?: InputMaybe<Array<Scalars['ID']>>;
   /** Text content in JSON format. */
@@ -1685,8 +1525,6 @@ export type AttributeValueTranslatableContent = Node & {
   attributeValue?: Maybe<AttributeValue>;
   id: Scalars['ID'];
   name: Scalars['String'];
-  /** Attribute plain text value. */
-  plainText?: Maybe<Scalars['String']>;
   /**
    * Attribute value.
    *
@@ -1721,8 +1559,6 @@ export type AttributeValueTranslation = Node & {
   /** Translation language. */
   language: LanguageDisplay;
   name: Scalars['String'];
-  /** Attribute plain text value. */
-  plainText?: Maybe<Scalars['String']>;
   /**
    * Attribute value.
    *
@@ -1733,8 +1569,6 @@ export type AttributeValueTranslation = Node & {
 
 export type AttributeValueTranslationInput = {
   name?: InputMaybe<Scalars['String']>;
-  /** Translated text. */
-  plainText?: InputMaybe<Scalars['String']>;
   /**
    * Translated text.
    *
@@ -1765,8 +1599,6 @@ export type AttributeValueUpdateInput = {
   fileUrl?: InputMaybe<Scalars['String']>;
   /** Name of a value displayed in the interface. */
   name?: InputMaybe<Scalars['String']>;
-  /** Represents the text of the attribute value, plain text without formating. */
-  plainText?: InputMaybe<Scalars['String']>;
   /**
    * Represents the text of the attribute value, includes formatting.
    *
@@ -12350,9 +12182,7 @@ export type OrderSortField =
   /** Sort orders by number. */
   | 'NUMBER'
   /** Sort orders by payment. */
-  | 'PAYMENT'
-  /** Sort orders by rank. Note: This option is available only with the `search` filter. */
-  | 'RANK';
+  | 'PAYMENT';
 
 export type OrderSortingInput = {
   /** Specifies the direction in which to sort products. */
@@ -13086,26 +12916,6 @@ export type PageTypeCreateInput = {
   slug?: InputMaybe<Scalars['String']>;
 };
 
-export type PageTypeCreated = Event & {
-  __typename?: 'PageTypeCreated';
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /**
-   * The page type the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  pageType?: Maybe<PageType>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
-};
-
 /**
  * Delete a page type.
  *
@@ -13117,26 +12927,6 @@ export type PageTypeDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   pageErrors: Array<PageError>;
   pageType?: Maybe<PageType>;
-};
-
-export type PageTypeDeleted = Event & {
-  __typename?: 'PageTypeDeleted';
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /**
-   * The page type the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  pageType?: Maybe<PageType>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 export type PageTypeFilterInput = {
@@ -13192,26 +12982,6 @@ export type PageTypeUpdateInput = {
   removeAttributes?: InputMaybe<Array<Scalars['ID']>>;
   /** Page type slug. */
   slug?: InputMaybe<Scalars['String']>;
-};
-
-export type PageTypeUpdated = Event & {
-  __typename?: 'PageTypeUpdated';
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /**
-   * The page type the event relates to.
-   *
-   * Added in Saleor 3.5.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  pageType?: Maybe<PageType>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 /**
@@ -18588,26 +18358,6 @@ export type StaffCreateInput = {
   redirectUrl?: InputMaybe<Scalars['String']>;
 };
 
-export type StaffCreated = Event & {
-  __typename?: 'StaffCreated';
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /**
-   * The user the event relates to.
-   *
-   * Added in Saleor 3.2.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  user?: Maybe<User>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
-};
-
 /**
  * Deletes a staff user.
  *
@@ -18619,26 +18369,6 @@ export type StaffDelete = {
   /** @deprecated This field will be removed in Saleor 4.0. Use `errors` field instead. */
   staffErrors: Array<StaffError>;
   user?: Maybe<User>;
-};
-
-export type StaffDeleted = Event & {
-  __typename?: 'StaffDeleted';
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /**
-   * The user the event relates to.
-   *
-   * Added in Saleor 3.2.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  user?: Maybe<User>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 export type StaffError = {
@@ -18753,26 +18483,6 @@ export type StaffUpdateInput = {
   note?: InputMaybe<Scalars['String']>;
   /** List of permission group IDs from which user should be unassigned. */
   removeGroups?: InputMaybe<Array<Scalars['ID']>>;
-};
-
-export type StaffUpdated = Event & {
-  __typename?: 'StaffUpdated';
-  /** Time of the event. */
-  issuedAt?: Maybe<Scalars['DateTime']>;
-  /** The user or application that triggered the event. */
-  issuingPrincipal?: Maybe<IssuingPrincipal>;
-  /** The application receiving the webhook. */
-  recipient?: Maybe<App>;
-  /**
-   * The user the event relates to.
-   *
-   * Added in Saleor 3.2.
-   *
-   * Note: this API is currently in Feature Preview and can be subject to changes at later point.
-   */
-  user?: Maybe<User>;
-  /** Saleor version that triggered the event. */
-  version?: Maybe<Scalars['String']>;
 };
 
 export type StaffUserInput = {
@@ -20793,12 +20503,6 @@ export type WebhookEventSync = {
 
 /** Enum determining type of webhook. */
 export type WebhookEventTypeAsyncEnum =
-  /** A new address created. */
-  | 'ADDRESS_CREATED'
-  /** An address deleted. */
-  | 'ADDRESS_DELETED'
-  /** An address updated. */
-  | 'ADDRESS_UPDATED'
   /** All the events. */
   | 'ANY_EVENTS'
   /** An app deleted. */
@@ -20809,12 +20513,6 @@ export type WebhookEventTypeAsyncEnum =
   | 'APP_STATUS_CHANGED'
   /** An app updated. */
   | 'APP_UPDATED'
-  /** A new attribute is created. */
-  | 'ATTRIBUTE_CREATED'
-  /** An attribute is deleted. */
-  | 'ATTRIBUTE_DELETED'
-  /** An attribute is updated. */
-  | 'ATTRIBUTE_UPDATED'
   /** A new category created. */
   | 'CATEGORY_CREATED'
   /** A category is deleted. */
@@ -20896,12 +20594,6 @@ export type WebhookEventTypeAsyncEnum =
   | 'PAGE_CREATED'
   /** A page is deleted. */
   | 'PAGE_DELETED'
-  /** A new page type is created. */
-  | 'PAGE_TYPE_CREATED'
-  /** A page type is deleted. */
-  | 'PAGE_TYPE_DELETED'
-  /** A page type is updated. */
-  | 'PAGE_TYPE_UPDATED'
   /** A page is updated. */
   | 'PAGE_UPDATED'
   /** A new product is created. */
@@ -20933,10 +20625,6 @@ export type WebhookEventTypeAsyncEnum =
   | 'SHIPPING_ZONE_DELETED'
   /** A shipping zone is updated. */
   | 'SHIPPING_ZONE_UPDATED'
-  /** A staff user is deleted */
-  | 'STAFF_CREATED'
-  | 'STAFF_DELETED'
-  | 'STAFF_UPDATED'
   | 'TRANSACTION_ACTION_REQUEST'
   | 'TRANSLATION_CREATED'
   | 'TRANSLATION_UPDATED'
@@ -20955,12 +20643,6 @@ export type WebhookEventTypeAsyncEnum =
 
 /** Enum determining type of webhook. */
 export type WebhookEventTypeEnum =
-  /** A new address created. */
-  | 'ADDRESS_CREATED'
-  /** An address deleted. */
-  | 'ADDRESS_DELETED'
-  /** An address updated. */
-  | 'ADDRESS_UPDATED'
   /** All the events. */
   | 'ANY_EVENTS'
   /** An app deleted. */
@@ -20971,12 +20653,6 @@ export type WebhookEventTypeEnum =
   | 'APP_STATUS_CHANGED'
   /** An app updated. */
   | 'APP_UPDATED'
-  /** A new attribute is created. */
-  | 'ATTRIBUTE_CREATED'
-  /** An attribute is deleted. */
-  | 'ATTRIBUTE_DELETED'
-  /** An attribute is updated. */
-  | 'ATTRIBUTE_UPDATED'
   /** A new category created. */
   | 'CATEGORY_CREATED'
   /** A category is deleted. */
@@ -21060,12 +20736,6 @@ export type WebhookEventTypeEnum =
   | 'PAGE_CREATED'
   /** A page is deleted. */
   | 'PAGE_DELETED'
-  /** A new page type is created. */
-  | 'PAGE_TYPE_CREATED'
-  /** A page type is deleted. */
-  | 'PAGE_TYPE_DELETED'
-  /** A page type is updated. */
-  | 'PAGE_TYPE_UPDATED'
   /** A page is updated. */
   | 'PAGE_UPDATED'
   | 'PAYMENT_AUTHORIZE'
@@ -21105,10 +20775,6 @@ export type WebhookEventTypeEnum =
   | 'SHIPPING_ZONE_DELETED'
   /** A shipping zone is updated. */
   | 'SHIPPING_ZONE_UPDATED'
-  /** A staff user is deleted */
-  | 'STAFF_CREATED'
-  | 'STAFF_DELETED'
-  | 'STAFF_UPDATED'
   | 'TRANSACTION_ACTION_REQUEST'
   | 'TRANSLATION_CREATED'
   | 'TRANSLATION_UPDATED'
@@ -21140,16 +20806,10 @@ export type WebhookEventTypeSyncEnum =
 
 /** An enumeration. */
 export type WebhookSampleEventTypeEnum =
-  | 'ADDRESS_CREATED'
-  | 'ADDRESS_DELETED'
-  | 'ADDRESS_UPDATED'
   | 'APP_DELETED'
   | 'APP_INSTALLED'
   | 'APP_STATUS_CHANGED'
   | 'APP_UPDATED'
-  | 'ATTRIBUTE_CREATED'
-  | 'ATTRIBUTE_DELETED'
-  | 'ATTRIBUTE_UPDATED'
   | 'CATEGORY_CREATED'
   | 'CATEGORY_DELETED'
   | 'CATEGORY_UPDATED'
@@ -21192,9 +20852,6 @@ export type WebhookSampleEventTypeEnum =
   | 'ORDER_UPDATED'
   | 'PAGE_CREATED'
   | 'PAGE_DELETED'
-  | 'PAGE_TYPE_CREATED'
-  | 'PAGE_TYPE_DELETED'
-  | 'PAGE_TYPE_UPDATED'
   | 'PAGE_UPDATED'
   | 'PRODUCT_CREATED'
   | 'PRODUCT_DELETED'
@@ -21213,9 +20870,6 @@ export type WebhookSampleEventTypeEnum =
   | 'SHIPPING_ZONE_CREATED'
   | 'SHIPPING_ZONE_DELETED'
   | 'SHIPPING_ZONE_UPDATED'
-  | 'STAFF_CREATED'
-  | 'STAFF_DELETED'
-  | 'STAFF_UPDATED'
   | 'TRANSACTION_ACTION_REQUEST'
   | 'TRANSLATION_CREATED'
   | 'TRANSLATION_UPDATED'
@@ -21450,7 +21104,7 @@ export type TransactionUpdateMutation = { __typename?: 'Mutation', transactionUp
 export type TransactionActionRequestSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TransactionActionRequestSubscription = { __typename?: 'Subscription', event?: { __typename?: 'AddressCreated' } | { __typename?: 'AddressDeleted' } | { __typename?: 'AddressUpdated' } | { __typename?: 'AppDeleted' } | { __typename?: 'AppInstalled' } | { __typename?: 'AppStatusChanged' } | { __typename?: 'AppUpdated' } | { __typename?: 'AttributeCreated' } | { __typename?: 'AttributeDeleted' } | { __typename?: 'AttributeUpdated' } | { __typename?: 'CategoryCreated' } | { __typename?: 'CategoryDeleted' } | { __typename?: 'CategoryUpdated' } | { __typename?: 'ChannelCreated' } | { __typename?: 'ChannelDeleted' } | { __typename?: 'ChannelStatusChanged' } | { __typename?: 'ChannelUpdated' } | { __typename?: 'CheckoutCreated' } | { __typename?: 'CheckoutUpdated' } | { __typename?: 'CollectionCreated' } | { __typename?: 'CollectionDeleted' } | { __typename?: 'CollectionUpdated' } | { __typename?: 'CustomerCreated' } | { __typename?: 'CustomerUpdated' } | { __typename?: 'DraftOrderCreated' } | { __typename?: 'DraftOrderDeleted' } | { __typename?: 'DraftOrderUpdated' } | { __typename?: 'FulfillmentCanceled' } | { __typename?: 'FulfillmentCreated' } | { __typename?: 'GiftCardCreated' } | { __typename?: 'GiftCardDeleted' } | { __typename?: 'GiftCardStatusChanged' } | { __typename?: 'GiftCardUpdated' } | { __typename?: 'InvoiceDeleted' } | { __typename?: 'InvoiceRequested' } | { __typename?: 'InvoiceSent' } | { __typename?: 'MenuCreated' } | { __typename?: 'MenuDeleted' } | { __typename?: 'MenuItemCreated' } | { __typename?: 'MenuItemDeleted' } | { __typename?: 'MenuItemUpdated' } | { __typename?: 'MenuUpdated' } | { __typename?: 'OrderCancelled' } | { __typename?: 'OrderConfirmed' } | { __typename?: 'OrderCreated' } | { __typename?: 'OrderFulfilled' } | { __typename?: 'OrderFullyPaid' } | { __typename?: 'OrderUpdated' } | { __typename?: 'PageCreated' } | { __typename?: 'PageDeleted' } | { __typename?: 'PageTypeCreated' } | { __typename?: 'PageTypeDeleted' } | { __typename?: 'PageTypeUpdated' } | { __typename?: 'PageUpdated' } | { __typename?: 'ProductCreated' } | { __typename?: 'ProductDeleted' } | { __typename?: 'ProductUpdated' } | { __typename?: 'ProductVariantBackInStock' } | { __typename?: 'ProductVariantCreated' } | { __typename?: 'ProductVariantDeleted' } | { __typename?: 'ProductVariantOutOfStock' } | { __typename?: 'ProductVariantUpdated' } | { __typename?: 'SaleCreated' } | { __typename?: 'SaleDeleted' } | { __typename?: 'SaleUpdated' } | { __typename?: 'ShippingPriceCreated' } | { __typename?: 'ShippingPriceDeleted' } | { __typename?: 'ShippingPriceUpdated' } | { __typename?: 'ShippingZoneCreated' } | { __typename?: 'ShippingZoneDeleted' } | { __typename?: 'ShippingZoneUpdated' } | { __typename?: 'StaffCreated' } | { __typename?: 'StaffDeleted' } | { __typename?: 'StaffUpdated' } | { __typename?: 'TransactionActionRequest', transaction?: { __typename?: 'TransactionItem', id: string, reference: string, type: string, authorizedAmount: { __typename?: 'Money', amount: number, currency: string }, chargedAmount: { __typename?: 'Money', amount: number }, voidedAmount: { __typename?: 'Money', amount: number }, refundedAmount: { __typename?: 'Money', amount: number } } | null, action: { __typename?: 'TransactionAction', actionType: TransactionActionEnum, amount?: any | null } } | { __typename?: 'TranslationCreated' } | { __typename?: 'TranslationUpdated' } | { __typename?: 'VoucherCreated' } | { __typename?: 'VoucherDeleted' } | { __typename?: 'VoucherUpdated' } | { __typename?: 'WarehouseCreated' } | { __typename?: 'WarehouseDeleted' } | { __typename?: 'WarehouseUpdated' } | null };
+export type TransactionActionRequestSubscription = { __typename?: 'Subscription', event?: { __typename?: 'AppDeleted' } | { __typename?: 'AppInstalled' } | { __typename?: 'AppStatusChanged' } | { __typename?: 'AppUpdated' } | { __typename?: 'CategoryCreated' } | { __typename?: 'CategoryDeleted' } | { __typename?: 'CategoryUpdated' } | { __typename?: 'ChannelCreated' } | { __typename?: 'ChannelDeleted' } | { __typename?: 'ChannelStatusChanged' } | { __typename?: 'ChannelUpdated' } | { __typename?: 'CheckoutCreated' } | { __typename?: 'CheckoutUpdated' } | { __typename?: 'CollectionCreated' } | { __typename?: 'CollectionDeleted' } | { __typename?: 'CollectionUpdated' } | { __typename?: 'CustomerCreated' } | { __typename?: 'CustomerUpdated' } | { __typename?: 'DraftOrderCreated' } | { __typename?: 'DraftOrderDeleted' } | { __typename?: 'DraftOrderUpdated' } | { __typename?: 'FulfillmentCanceled' } | { __typename?: 'FulfillmentCreated' } | { __typename?: 'GiftCardCreated' } | { __typename?: 'GiftCardDeleted' } | { __typename?: 'GiftCardStatusChanged' } | { __typename?: 'GiftCardUpdated' } | { __typename?: 'InvoiceDeleted' } | { __typename?: 'InvoiceRequested' } | { __typename?: 'InvoiceSent' } | { __typename?: 'MenuCreated' } | { __typename?: 'MenuDeleted' } | { __typename?: 'MenuItemCreated' } | { __typename?: 'MenuItemDeleted' } | { __typename?: 'MenuItemUpdated' } | { __typename?: 'MenuUpdated' } | { __typename?: 'OrderCancelled' } | { __typename?: 'OrderConfirmed' } | { __typename?: 'OrderCreated' } | { __typename?: 'OrderFulfilled' } | { __typename?: 'OrderFullyPaid' } | { __typename?: 'OrderUpdated' } | { __typename?: 'PageCreated' } | { __typename?: 'PageDeleted' } | { __typename?: 'PageUpdated' } | { __typename?: 'ProductCreated' } | { __typename?: 'ProductDeleted' } | { __typename?: 'ProductUpdated' } | { __typename?: 'ProductVariantBackInStock' } | { __typename?: 'ProductVariantCreated' } | { __typename?: 'ProductVariantDeleted' } | { __typename?: 'ProductVariantOutOfStock' } | { __typename?: 'ProductVariantUpdated' } | { __typename?: 'SaleCreated' } | { __typename?: 'SaleDeleted' } | { __typename?: 'SaleUpdated' } | { __typename?: 'ShippingPriceCreated' } | { __typename?: 'ShippingPriceDeleted' } | { __typename?: 'ShippingPriceUpdated' } | { __typename?: 'ShippingZoneCreated' } | { __typename?: 'ShippingZoneDeleted' } | { __typename?: 'ShippingZoneUpdated' } | { __typename?: 'TransactionActionRequest', transaction?: { __typename?: 'TransactionItem', id: string, reference: string, type: string, authorizedAmount: { __typename?: 'Money', amount: number, currency: string }, chargedAmount: { __typename?: 'Money', amount: number }, voidedAmount: { __typename?: 'Money', amount: number }, refundedAmount: { __typename?: 'Money', amount: number } } | null, action: { __typename?: 'TransactionAction', actionType: TransactionActionEnum, amount?: any | null } } | { __typename?: 'TranslationCreated' } | { __typename?: 'TranslationUpdated' } | { __typename?: 'VoucherCreated' } | { __typename?: 'VoucherDeleted' } | { __typename?: 'VoucherUpdated' } | { __typename?: 'WarehouseCreated' } | { __typename?: 'WarehouseDeleted' } | { __typename?: 'WarehouseUpdated' } | null };
 
 export type TransactionActionPayloadFragment = { __typename?: 'TransactionActionRequest', transaction?: { __typename?: 'TransactionItem', id: string, reference: string, type: string, authorizedAmount: { __typename?: 'Money', amount: number, currency: string }, chargedAmount: { __typename?: 'Money', amount: number }, voidedAmount: { __typename?: 'Money', amount: number }, refundedAmount: { __typename?: 'Money', amount: number } } | null, action: { __typename?: 'TransactionAction', actionType: TransactionActionEnum, amount?: any | null } };
 
